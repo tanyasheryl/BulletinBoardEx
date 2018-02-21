@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Component Lifecycle</title>
+    <style>
+        #boxx
+        {
+            background-color: blue;
+            height:  200px;
+            width:  200px
+        }
+    </style>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="react-container"></div>
+    
+    <script type="text/babel">
+        class Box extends React.Component{
+            constructor(props)
+            {
+                super(props)
+                this.state = {
+                    backgroundColor : 'purple'
+                }
+                this.update = this.update.bind(this)
+            }
+//            componentWillMount()
+//            {
+//                alert('component is just about to mount')
+//            }
+//            componentDidMount()
+//            {
+//                alert('component is has mounted')
+//            }
+            update()
+            {
+                this.setState({
+                    backgroundColor : 'green'
+                })
+            }
+            componentDidUpdate()
+            {
+                alert('component is updated')
+            }
+            render(){
+                return(
+                    <div id="boxx" style={this.state} onClick = {this.update}></div>
+                )
+            }
+        }
+        ReactDOM.render(<Box />,document.getElementById('react-container'))
+    </script>
+</body>
+
+</html>
+

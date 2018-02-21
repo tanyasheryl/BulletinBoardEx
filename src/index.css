@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.Board
+{
+    background-color: black;
+    height: 800px;
+}
+.note
+{
+
+    background-color: yellowgreen;
+    height: 100px;
+    width:100px;
+    position: absolute;
+
+}
